@@ -11,7 +11,7 @@
 > give notification on Telegram if high railfall, low/high temperature or low/high humidity
 ```
 ## Note for file
-### thingspeak.ino
+### esp8266_thingspeak.ino
 ```
 > Multiple data (4 field) send to thingspeak
 ```
