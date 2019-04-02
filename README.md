@@ -21,3 +21,7 @@
 > Read rainfall sensor for hourly and daily
 > get time sync with server
 ```
+### code_fix.ino
+```
+> Combine between file esp8266_thingspeak and read_sensor
+```
