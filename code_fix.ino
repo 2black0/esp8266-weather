@@ -17,7 +17,7 @@ const double bucketSize = 1.346;
 float dailyRain = 0.0;          
 float hourlyRain = 0.0;        
 float dailyRain_till_LastHour = 0.0;
-bool first;  
+bool first_hour, first_day;  
 
 //wifi configuration
 const char* ssid = "WIFI_GRATIS";
@@ -56,6 +56,10 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.println("Weather Information");
   Serial.println("--------------------");
+  for(int i=0;i<10;i++){
+    getSensor();
+    delay(100);
+  }
 }
 
 void thingspeak_send(){
@@ -77,29 +81,37 @@ void thingspeak_send(){
  
 void handleInterrupt() {
   if((millis() - contactTime) > 15){
+    hourlyRain+=bucketSize;
     dailyRain+=bucketSize;
     contactTime = millis();
   }
 }
 
-void rain_daily(){
+void checkRain(){
   time_t now = time(nullptr);
   struct tm * timeinfo;
   timeinfo = gmtime(&now);
+
+  // check hour
+  if(timeinfo->tm_min != 0) first_hour = true;
+  if(timeinfo->tm_min == 0 && first_hour == true){
+    hourlyRain=0;
+    first_hour = false;
+  }
+
+  // check day
+  if(timeinfo->tm_hour != 0) first_day = true;
+  if(timeinfo->tm_hour == 0 && first_day == true){
+    dailyRain=0;
+    first_day = false;
+  }
   
-  //Serial.println("--------------");
-  //Serial.print("Hour = ");Serial.println(timeinfo->tm_hour);
-  //Serial.print("Min = ");Serial.println(timeinfo->tm_min); 
-  //Serial.print("Sec = ");Serial.println(timeinfo->tm_sec); 
-  //Serial.println("--------------");
 }
 
-void counterRain(){
+/*void counterRain(){
   time_t now = time(nullptr);
   struct tm * timeinfo;
   timeinfo = gmtime(&now);
-  //Serial.print(timeinfo->tm_hour);
-  //Serial.print(timeinfo->tm_min); 
   if(timeinfo->tm_min != 0) first = true;
   if(timeinfo->tm_min == 0 && first == true){
     hourlyRain = dailyRain - dailyRain_till_LastHour;
@@ -110,7 +122,7 @@ void counterRain(){
     dailyRain = 0.0;
     dailyRain_till_LastHour = 0.0;
   }
-}
+}*/
 
 void showData(){
   time_t now = time(nullptr);
@@ -122,7 +134,7 @@ void showData(){
   Serial.print("Air Humidity = ");
   Serial.print(humidity);
   Serial.println(" %");
-  Serial.print("Rainfall in last Hour = ");
+  Serial.print("Rainfall Hourly = ");
   Serial.print(hourlyRain,8);
   Serial.println(" mm");
   Serial.print("Rainfall Daily = ");
@@ -154,8 +166,7 @@ void loop() {
   }
   
   getSensor();
-  counterRain();
-  //rain_daily();
+  checkRain();
   showData();
   thingspeak_send();
   delay(20000);
