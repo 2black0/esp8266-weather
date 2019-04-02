@@ -15,3 +15,9 @@
 ```
 > Multiple data (4 field) send to thingspeak
 ```
+### read_sensor.ino
+```
+> Read Sensor DHT11 : Air Temp & Hum
+> Read rainfall sensor for hourly and daily
+> get time sync with server
+```
