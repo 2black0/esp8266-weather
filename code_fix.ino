@@ -23,8 +23,8 @@ float dailyRain_till_LastHour = 0.0;
 bool first_hour, first_day;  
 
 //wifi configuration
-const char* ssid = "WIFI_GRATIS";
-const char* pass = "arDY1234*$";
+const char* ssid = "XXXXXXXXXX";
+const char* pass = "XXXXXXXXXX";
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 WiFiClient  client;
 
@@ -34,11 +34,11 @@ int dst = 0;
 
 //thingspeak configuration
 unsigned long myChannelNumber = 746681;
-const char *myWriteAPIKey = "TLO5WA41KTENXZ1Y";
+const char *myWriteAPIKey = "XXXXXXXXXXX";
 
 //telegram configuration
 CTBot myBot;
-String token = "791642742:AAGsnCIQbPVhWpR2L1kER4wPANhGTq8mUpQ"   ; // REPLACE myToken WITH YOUR TELEGRAM BOT TOKEN
+String token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"   ; // REPLACE myToken WITH YOUR TELEGRAM BOT TOKEN
 int64_t userid;
 byte temp_s =0, hum_s =0;
 float hourlyRain_s=0;
