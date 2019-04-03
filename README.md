@@ -24,4 +24,6 @@
 ### code_fix.ino
 ```
 > Combine between file esp8266_thingspeak and read_sensor
+> timer interrupt for thingspeak data upload (in every 2 minutes)
+> telegram bot function : read data & send warning if some condition
 ```
