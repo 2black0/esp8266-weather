@@ -19,8 +19,8 @@ double dailyRain_till_LastHour = 0.0;
 bool first;  
 
 //wifi configuration
-const char* ssid = "WIFI_GRATIS";
-const char* password = "arDY1234*$";
+const char* ssid = "WIFI_SSID";
+const char* password = "1234567890";
 
 //time configuration
 int timezone = 7 * 3600;

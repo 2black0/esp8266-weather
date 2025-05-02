@@ -33,7 +33,7 @@ int timezone = 7 * 3600;
 int dst = 0;
 
 //thingspeak configuration
-unsigned long myChannelNumber = 746681;
+unsigned long myChannelNumber = 123456;
 const char *myWriteAPIKey = "XXXXXXXXXXX";
 
 //telegram configuration
