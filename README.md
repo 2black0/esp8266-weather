@@ -13,13 +13,13 @@ A smart weather station using **NodeMCU ESP8266**, **DHT11**, and a **rainfall s
 
 ```
 
-weather-station-esp8266/
+Weather-Station-ESP8266/
 ├── LICENSE
-├── README.md
-└── projects/
-├── code_fix.ino              # Combined main project
-├── esp8266_thingspeak.ino    # ThingSpeak upload demo
-└── read_sensor.ino           # Sensor reading demo
+├── projects
+│   ├── code_fix.ino            # Main integrated sketch
+│   ├── esp8266_thingspeak.ino  # Minimal demo
+│   └── read_sensor.ino         # Standalone data reader
+└── README.md
 
 ```
 
