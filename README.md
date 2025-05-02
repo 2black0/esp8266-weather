@@ -17,9 +17,9 @@ weather-station-esp8266/
 ├── LICENSE
 ├── README.md
 └── projects/
-├── code\_fix.ino              # Combined main project
-├── esp8266\_thingspeak.ino    # ThingSpeak upload demo
-└── read\_sensor.ino           # Sensor reading demo
+├── code_fix.ino              # Combined main project
+├── esp8266_thingspeak.ino    # ThingSpeak upload demo
+└── read_sensor.ino           # Sensor reading demo
 
 ```
 
